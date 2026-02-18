@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --foreground: #0f172a;
+  /* Liquid Gradient Colors */
+  --c1: #ff6b6b;
+  --c2: #4ecdc4;
+  --c3: #45b7d1;
+  --c4: #96ceb4;
+  --c5: #ffeead;
+}
+
+/* Base Reset & Overflow Fix */
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: #000; /* Dark base for colors to pop */
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  max-width: 100vw;
+  width: 100%;
+  overflow: hidden; /* App handles scrolling */
+  position: relative;
+}
+
+/* --- LIQUID BACKGROUND ANIMATION --- */
+.liquid-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  background-size: 200% 200%;
+}
+
+.liquid-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  animation: float-liquid 20s infinite ease-in-out;
+  z-index: -1;
+}
+
+/* --- ULTRA GLASSMORPHISM (iOS 26 Style) --- */
+.ios-glass {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    inset 0 0 20px rgba(255, 255, 255, 0.5); /* Inner glow for 3D feel */
+}
+
+.ios-glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ios-glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.15);
+}
+
+.ios-input {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+}
+
+.ios-input:focus, .ios-input:hover {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes float-liquid {
+  0% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+/* --- DYNAMIC ISLAND ANIMATION --- */
+@keyframes island-pop {
+  0% { transform: translate(-50%, -20px) scale(0.8); opacity: 0; }
+  50% { transform: translate(-50%, 10px) scale(1.05); opacity: 1; }
+  100% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+}
+
+@keyframes island-exit {
+  0% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -20px) scale(0.8); opacity: 0; }
+}
+
+.dynamic-island-enter {
+  animation: island-pop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.dynamic-island-exit {
+  animation: island-exit 0.3s ease-in forwards;
+}
+
+/* Custom Scrollbar (Thin & Elegant) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
