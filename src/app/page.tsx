@@ -448,6 +448,24 @@ export default function Home() {
               {isSimulating ? "SIMULATING..." : "RUN TEST INTERVIEW"}
             </button>
           </div>
+
+          {/* System Logs */}
+          <div className="space-y-4">
+            <h2 className="text-[9px] font-black text-slate-400 uppercase tracking-widest pl-1">System Diagnostics</h2>
+            <div className="bg-slate-900/90 rounded-2xl p-3 border border-white/10 shadow-inner font-mono text-[9px] h-32 overflow-y-auto custom-scrollbar">
+              {logs.length === 0 ? (
+                <p className="text-slate-500 italic text-center py-4">No active logs...</p>
+              ) : (
+                <div className="flex flex-col-reverse">
+                  {logs.map((log, i) => (
+                    <div key={i} className="mb-1.5 text-slate-300 break-all border-b border-white/5 pb-1 leading-relaxed opacity-80 hover:opacity-100 transition-opacity">
+                      {log}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Connection Status Footer */}
