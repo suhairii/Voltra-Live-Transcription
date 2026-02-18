@@ -12,6 +12,14 @@
 - **📱 Responsive Design**: Fully optimized for Desktop, Tablet, and Mobile devices.
 - **⚡ Test Simulation**: Built-in interview simulation to test the system without needing a live meeting.
 
+## ⚠️ MANDATORY BACKEND SETUP
+
+**VOLTRA** is a frontend interface. It **REQUIRES** a running instance of the **Vexa AI** backend to function (for transcription, bot management, and meeting connections).
+
+> [!IMPORTANT]
+> Before running VOLTRA, you must set up the Vexa backend:
+> **[Vexa AI Official Repository](https://github.com/Vexa-ai/vexa)**
+
 ## 🛠 Tech Stack
 
 - **Frontend**: Next.js 15 (App Router), TypeScript, Tailwind CSS
