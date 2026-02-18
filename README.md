@@ -80,7 +80,10 @@ To enable the **Correct** and **Summary** features, you need an n8n workflow. Fo
 1. Open your n8n instance.
 2. Create a new workflow.
 3. Copy the JSON below and paste it directly into the n8n canvas.
-4. Deploy the workflow and copy the **Production Webhook URL**.
+4. **Important**: The JSON contains a placeholder for **Groq AI Credentials**. You must:
+   - Click on the **Groq Chat Model** node.
+   - Select or Create your own **Groq API credentials** using your API Key from [Groq Console](https://console.groq.com/).
+5. Deploy the workflow and copy the **Production Webhook URL**.
 5. Paste that URL into the **VOLTRA** settings.
 
 <details>
